@@ -28,11 +28,17 @@ which is detailled in the following Kaggle link : https://www.kaggle.com/code/ni
 
 ## Chart/Widgets ideas:
 
+#### Descriptive :
+
 * The Close values of differents indicators (SnP, QQQ, S, DIJA, Close + CloseForecast)
-* Indexes per time series (filters include per year, per quarter, per month, per week, per day)
-* comparison of stock price/volume end of month vs not end of month ( filter through month, quarter, year)
-* comparison of average leap year vs non leap year (price/volume)
-* comparison between the different MAs (5, 10, 20, 50, 300)
+* Indexes per time series (filters include per year, per quarter, per month, per week, per day + compared to AAPL stock)
+* comparison of stock price/volume end of timeperiod vs beginning of timeperiod ( filter through month, quarter, year)
+* comparison average for leap years vs non leap years (price/volume)
+* comparison between the different MAs (5, 10, 20, 50, 200)
 * comparisons between EMAs (10, 20, 50, 100, 200)
 
+#### Predictive :
 
+* Volatility of AAPL stock ( RSI, STD, EMA)
+* do a gauge chart for RSI for AAPL stock (with tresholds 30 (overbought) and 70 (overbought) ) with timeline selector.
+* see linear regression code in Kaggle & adapt to our purpose : https://www.kaggle.com/code/nikhilkohli/stock-prediction-using-linear-regression-starter/notebook
