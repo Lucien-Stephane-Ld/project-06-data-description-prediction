@@ -25,6 +25,7 @@ which is detailled in the following Kaggle link : https://www.kaggle.com/code/ni
 
 * **SO** = Southern Company is an American gas and electric utility holding company based in the southern United States (??)
 * **DIJA** = Dow Jones Industrial Average Stock Prices
+* **QQQ** = Invesco QQQ ETF gives you access to a diverse group of cutting-edge Nasdaq-100 companies
 
 ## Chart/Widgets ideas:
 
@@ -41,4 +42,33 @@ which is detailled in the following Kaggle link : https://www.kaggle.com/code/ni
 
 * Volatility of AAPL stock ( RSI, STD, EMA)
 * do a gauge chart for RSI for AAPL stock (with tresholds 30 (overbought) and 70 (overbought) ) with timeline selector.
-* see linear regression code in Kaggle & adapt to our purpose : https://www.kaggle.com/code/nikhilkohli/stock-prediction-using-linear-regression-starter/notebook
+* see linear regression code in Kaggle & adapt to our purpose : https://www.kaggle.com/code/nikhilkohli/stock-prediction-using-linear-regression-starter/notebook*
+* calculate performance of each month/year
+
+
+## **CHARTS PRODUCED :**
+
+#### Overall Stats
+
+* AAPL vs SNP over time period (linechart)
+* AAPL ATR vs AAPL STD time period (linechart)
+* AAPL minus QQQ, performance comparison (barchart)
+* AAPL closing value vs AAPL volatility (linechart)
+* AAPL quarterly difference
+
+#### DASHBOARD 1 
+
+* BAN Avg Opening Value overall 
+* BAN Avg Opening Value per year
+* BAN performance overtime
+* BAN Coef of Variation (AAPL, QQQ, S&P, DJIA)
+* AAPL RSI evolution
+* AAPL leap year perfomance vs regular year
+* Indicator evolution (ADX, ATR, ROC, RSI)
+* MA according to time period of MA
+
+
+
+#### Focus on Jan 2020 to August 2020 (?)
+
+* AAPl vs QQQ for 2020 (linechart)
