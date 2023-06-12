@@ -3911,6 +3911,37 @@
     </datasource>
   </datasources>
   <worksheets>
+<<<<<<< HEAD
+=======
+    <worksheet name='AAPL ATR Linechart'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column datatype='real' name='[ATR]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column-instance column='[ATR]' derivation='Sum' name='[sum:ATR:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:ATR:qk]</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[tdy:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{36DFD498-4F9B-4B33-A6E0-4D8CDD3DFE90}' />
+    </worksheet>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
     <worksheet name='AAPL ATR vs STD Linechart'>
       <table>
         <view>
@@ -3998,6 +4029,41 @@
       </table>
       <simple-id uuid='{3C75D01D-4297-432F-97BF-E6103F533341}' />
     </worksheet>
+<<<<<<< HEAD
+=======
+    <worksheet name='AAPL Linechart'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column caption='AAPL(close price)' datatype='real' name='[Close(t)]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column-instance column='[Close(t)]' derivation='Sum' name='[sum:Close(t):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='height-header' value='148' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[tdy:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{2969CF18-DAAD-40AF-8A3A-0B6E729C5D17}' />
+    </worksheet>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
     <worksheet name='AAPL Quarterly Difference'>
       <table>
         <view>
@@ -4051,6 +4117,48 @@
       </table>
       <simple-id uuid='{C9F1765A-2089-4F05-AC31-E45ECA110A2D}' />
     </worksheet>
+<<<<<<< HEAD
+=======
+    <worksheet name='AAPL Yearly Performance'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column caption='AAPL(close price)' datatype='real' name='[Close(t)]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' caption='Is year end' datatype='integer' name='[Is_year_end]' role='dimension' type='ordinal' />
+            <column-instance column='[Is_year_end]' derivation='None' name='[none:Is_year_end:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Close(t)]' derivation='Sum' name='[sum:Close(t):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Year-Trunc' name='[tyr:Date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[none:Is_year_end:ok]'>
+            <groupfilter function='member' level='[none:Is_year_end:ok]' member='1' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[none:Is_year_end:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[tyr:Date:ok]</cols>
+      </table>
+      <simple-id uuid='{A3BF6BB4-C45F-4EB7-A097-9B86C7BEB976}' />
+    </worksheet>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
     <worksheet name='AAPL minus QQQ (bar)'>
       <table>
         <view>
@@ -4088,6 +4196,158 @@
       </table>
       <simple-id uuid='{65AFC5A9-7F4D-4EE7-B593-53AB8E9C2F6C}' />
     </worksheet>
+<<<<<<< HEAD
+=======
+    <worksheet name='AAPL minus QQQ(line)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column caption='AAPL minus  QQQ' datatype='real' name='[Calculation_959759328197054464]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Close(t)]) - SUM([QQQ_Close])' />
+            </column>
+            <column caption='AAPL(close price)' datatype='real' name='[Close(t)]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='QQQ(close price)' datatype='real' name='[QQQ_Close]' role='measure' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_959759328197054464]' derivation='User' name='[usr:Calculation_959759328197054464:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[usr:Calculation_959759328197054464:qk]</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[tdy:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{4CEDC10D-B810-48AD-A438-4EC16245D707}' />
+    </worksheet>
+    <worksheet name='AAPL vs QQQ(2020)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column caption='AAPL(close price)' datatype='real' name='[Close(t)]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='QQQ(close price)' datatype='real' name='[QQQ_Close]' role='measure' type='quantitative' />
+            <column-instance column='[Close(t)]' derivation='Sum' name='[sum:Close(t):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[QQQ_Close]' derivation='Sum' name='[sum:QQQ_Close:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Year' name='[yr:Date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[yr:Date:ok]'>
+            <groupfilter function='member' level='[yr:Date:ok]' member='2020' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[yr:Date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:QQQ_Close:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:QQQ_Close:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk] + [federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:QQQ_Close:qk])</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[tdy:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{FB30B1C7-C789-4AEE-9841-6171F19093B7}' />
+    </worksheet>
+    <worksheet name='AAPL vs SnP Linechart'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column caption='AAPL(close price)' datatype='real' name='[Close(t)]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='SnP(close price)' datatype='real' name='[SnP_Close]' role='measure' type='quantitative' />
+            <column-instance column='[Close(t)]' derivation='Sum' name='[sum:Close(t):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[SnP_Close]' derivation='Sum' name='[sum:SnP_Close:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:SnP_Close:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:SnP_Close:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk] + [federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:SnP_Close:qk])</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[tdy:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{1FF2BC72-BB8C-458C-BB92-D3B3CA6B7532}' />
+    </worksheet>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
     <worksheet name='AAPL vs SnP vs QQQ Linechart'>
       <table>
         <view>
@@ -4155,6 +4415,134 @@
       </table>
       <simple-id uuid='{B23AD5C9-5472-4E42-809A-8FCC9277AC16}' />
     </worksheet>
+<<<<<<< HEAD
+=======
+    <worksheet name='AAPL+STD(1)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column caption='AAPL(close price)' datatype='real' name='[Close(t)]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='Std5' datatype='real' name='[STD5]' role='measure' type='quantitative' />
+            <column-instance column='[Close(t)]' derivation='Sum' name='[sum:Close(t):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[STD5]' derivation='Sum' name='[sum:STD5:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Year' name='[yr:Date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:STD5:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:STD5:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk] + [federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:STD5:qk])</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[yr:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{09B50ED1-94B5-4FD4-9E12-74F724A7EE63}' />
+    </worksheet>
+    <worksheet name='AAPL+STD(2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column caption='AAPL(close price)' datatype='real' name='[Close(t)]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='Std5' datatype='real' name='[STD5]' role='measure' type='quantitative' />
+            <column-instance column='[Close(t)]' derivation='Sum' name='[sum:Close(t):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[STD5]' derivation='Sum' name='[sum:STD5:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:STD5:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#e8ecd8</color>
+                <color>#dfe7c1</color>
+                <color>#d7e2aa</color>
+                <color>#cfde94</color>
+                <color>#c7d97f</color>
+                <color>#bfd46a</color>
+                <color>#b8d057</color>
+                <color>#b0cb44</color>
+                <color>#a9c632</color>
+                <color>#a2c221</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:STD5:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:STD5:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk] + [federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:STD5:qk])</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[tdy:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{7452F799-C733-496F-8F30-07D63FEF9DCC}' />
+    </worksheet>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
     <worksheet name='AVG volume leap year'>
       <layout-options>
         <title>
@@ -4472,7 +4860,11 @@
             <format attr='color' value='#4e79a7' />
           </style-rule>
           <style-rule element='mark'>
+<<<<<<< HEAD
             <encoding attr='color' center='5.0' field='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[usr:Calculation_34339973531144220:qk]' max='10.0' min='0.0' palette='red_green_white_diverging_10_0' type='interpolated' />
+=======
+            <encoding attr='color' center='10.0' field='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[usr:Calculation_34339973531144220:qk]' max='50.0' min='-20.0' palette='red_green_white_diverging_10_0' type='interpolated' />
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='color' value='#1b1b1b' />
@@ -4684,6 +5076,73 @@
       </table>
       <simple-id uuid='{435AC234-2BB8-418D-8B2B-531826F66587}' />
     </worksheet>
+<<<<<<< HEAD
+=======
+    <worksheet name='Explorations'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column caption='AAPL(close price)' datatype='real' name='[Close(t)]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='Ema10' datatype='real' name='[EMA10]' role='measure' type='quantitative' />
+            <column datatype='real' name='[ForceIndex1]' role='measure' type='quantitative' />
+            <column-instance column='[Close(t)]' derivation='Sum' name='[sum:Close(t):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[EMA10]' derivation='Sum' name='[sum:EMA10:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[ForceIndex1]' derivation='Sum' name='[sum:ForceIndex1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Year' name='[yr:Date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[yr:Date:ok]'>
+            <groupfilter function='member' level='[yr:Date:ok]' member='2020' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[yr:Date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]' field-type='quantitative' max='484.25263157894733' min='200.0' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:EMA10:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:ForceIndex1:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>([federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk] + ([federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:EMA10:qk] + [federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:ForceIndex1:qk]))</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[tdy:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{6CB55B66-AFA8-435B-B96F-90D92BF72D0A}' />
+    </worksheet>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
     <worksheet name='Indicator evolution'>
       <layout-options>
         <title>
@@ -4889,6 +5348,46 @@
       </table>
       <simple-id uuid='{4A7765D1-364C-4B6D-B4F4-130145DC053E}' />
     </worksheet>
+<<<<<<< HEAD
+=======
+    <worksheet name='QQQ Linechart'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column caption='Date col' datatype='date' name='[Date_col]' role='dimension' type='quantitative' />
+            <column caption='QQQ(close price)' datatype='real' name='[QQQ_Close]' role='measure' type='quantitative' />
+            <column-instance column='[QQQ_Close]' derivation='Sum' name='[sum:QQQ_Close:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date_col]' derivation='Day-Trunc' name='[tdy:Date_col:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='867' />
+                <format attr='maxwidth' value='867' />
+                <format attr='minheight' value='600' />
+                <format attr='maxheight' value='600' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:QQQ_Close:qk]</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[tdy:Date_col:qk]</cols>
+      </table>
+      <simple-id uuid='{1315C9F3-EA09-440E-AAC0-34C9A9358E7C}' />
+    </worksheet>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
     <worksheet name='RSI'>
       <layout-options>
         <title>
@@ -4981,6 +5480,46 @@
       </table>
       <simple-id uuid='{C347B2E1-BB78-4139-8385-D36C01B84F1D}' />
     </worksheet>
+<<<<<<< HEAD
+=======
+    <worksheet name='S&amp;P Linechart'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AAPL (2)' name='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)'>
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='SnP(close price)' datatype='real' name='[SnP_Close]' role='measure' type='quantitative' />
+            <column-instance column='[SnP_Close]' derivation='Sum' name='[sum:SnP_Close:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='962' />
+                <format attr='maxwidth' value='962' />
+                <format attr='minheight' value='600' />
+                <format attr='maxheight' value='600' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:SnP_Close:qk]</rows>
+        <cols>[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[tdy:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{DDFA2134-EC99-4133-835D-C8616802B3E9}' />
+    </worksheet>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
   </worksheets>
   <dashboards>
     <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='COVER'>
@@ -4988,7 +5527,11 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+<<<<<<< HEAD
           <zone h='98230' id='3' is-scaled='1' param='C:/Users/User/Desktop/FORMATION/IRONHACK/LABS_project/DAFT_0410/module_2/Project_Week_6/project-06-data-description-prediction/apple_wallpaper.png' type-v2='bitmap' w='99064' x='468' y='885'>
+=======
+          <zone h='98230' id='3' is-scaled='1' param='C:/Users/User/Desktop/FORMATION/IRONHACK/LABS_project/DAFT_0410/module_2/Project_Week_6/project-06-data-description-prediction/apple_wallpaper.png' type-v2='bitmap' w='99036' x='482' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5017,9 +5560,15 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
+<<<<<<< HEAD
             <zone h='100000' id='35' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='84000' id='34' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='98230' id='3' is-fixed='true' is-scaled='1' param='C:/Users/User/Desktop/FORMATION/IRONHACK/LABS_project/DAFT_0410/module_2/Project_Week_6/project-06-data-description-prediction/apple_wallpaper.png' type-v2='bitmap' w='99064' x='468' y='885'>
+=======
+            <zone h='100000' id='27' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='26' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+                <zone fixed-size='280' h='98230' id='3' is-fixed='true' is-scaled='1' param='C:/Users/User/Desktop/FORMATION/IRONHACK/LABS_project/DAFT_0410/module_2/Project_Week_6/project-06-data-description-prediction/apple_wallpaper.png' type-v2='bitmap' w='99036' x='482' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5062,12 +5611,21 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+<<<<<<< HEAD
           <zone h='98230' id='23' param='horz' type-v2='layout-flow' w='99064' x='468' y='885'>
             <zone h='98230' id='18' type-v2='layout-basic' w='99064' x='468' y='885'>
               <zone h='20465' id='12' param='horz' type-v2='layout-flow' w='99064' x='468' y='885'>
                 <zone h='20465' id='8' param='horz' type-v2='layout-flow' w='99064' x='468' y='885'>
                   <zone h='20465' id='6' type-v2='layout-basic' w='45816' x='468' y='885'>
                     <zone h='20465' id='3' name='BAN-open value all' w='20730' x='468' y='885'>
+=======
+          <zone h='98230' id='23' param='horz' type-v2='layout-flow' w='99036' x='482' y='885'>
+            <zone h='98230' id='18' type-v2='layout-basic' w='99036' x='482' y='885'>
+              <zone h='20465' id='12' param='horz' type-v2='layout-flow' w='99036' x='482' y='885'>
+                <zone h='20465' id='8' param='horz' type-v2='layout-flow' w='99036' x='482' y='885'>
+                  <zone h='20465' id='6' type-v2='layout-basic' w='44250' x='482' y='885'>
+                    <zone h='20465' id='3' name='BAN-open value all' w='20024' x='482' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                       <zone-style>
                         <format attr='border-color' value='#000000' />
                         <format attr='border-style' value='none' />
@@ -5075,7 +5633,11 @@
                         <format attr='margin' value='4' />
                       </zone-style>
                     </zone>
+<<<<<<< HEAD
                     <zone h='17162' id='5' name='BAN-open value year' w='25086' x='21198' y='885'>
+=======
+                    <zone h='17162' id='5' name='BAN-open value year' w='24226' x='20506' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                       <zone-style>
                         <format attr='border-color' value='#000000' />
                         <format attr='border-style' value='none' />
@@ -5083,7 +5645,11 @@
                         <format attr='margin' value='4' />
                       </zone-style>
                     </zone>
+<<<<<<< HEAD
                     <zone count='1' fixed-size='118' h='3303' id='9' is-fixed='true' name='BAN-open value year' name1='BAN- coefficient of variation' playctrls='0' show-title='false' synchronized='1' trailctrls='0' type-v2='currpage' w='25086' x='21198' y='18047'>
+=======
+                    <zone count='1' fixed-size='118' h='3303' id='9' is-fixed='true' name='BAN-open value year' name1='BAN- coefficient of variation' playctrls='0' show-title='false' synchronized='1' trailctrls='0' type-v2='currpage' w='24226' x='20506' y='18047'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                       <zone-style>
                         <format attr='border-color' value='#000000' />
                         <format attr='border-style' value='none' />
@@ -5092,10 +5658,17 @@
                       </zone-style>
                     </zone>
                   </zone>
+<<<<<<< HEAD
                   <zone fixed-size='910' h='20465' id='27' is-fixed='true' type-v2='layout-basic' w='53248' x='46284' y='885'>
                     <zone h='20465' id='31' is-fixed='true' type-v2='layout-basic' w='28377' x='46284' y='885'>
                       <zone h='17162' id='7' param='vert' type-v2='layout-flow' w='28377' x='46284' y='885'>
                         <zone fixed-size='342' h='17162' id='10' is-fixed='true' name='BAN-Performance yearly' w='28377' x='46284' y='885'>
+=======
+                  <zone fixed-size='910' h='20465' id='27' is-fixed='true' type-v2='layout-basic' w='54786' x='44732' y='885'>
+                    <zone h='20465' id='31' is-fixed='true' type-v2='layout-basic' w='29199' x='44732' y='885'>
+                      <zone h='17162' id='7' param='vert' type-v2='layout-flow' w='29199' x='44732' y='885'>
+                        <zone fixed-size='342' h='17162' id='10' is-fixed='true' name='BAN-Performance yearly' w='29199' x='44732' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                           <layout-cache type-h='cell' type-w='cell' />
                           <zone-style>
                             <format attr='border-color' value='#000000' />
@@ -5105,8 +5678,13 @@
                           </zone-style>
                         </zone>
                       </zone>
+<<<<<<< HEAD
                       <zone h='3303' id='32' param='vert' type-v2='layout-flow' w='28377' x='46284' y='18047'>
                         <zone dropdown='1' h='3303' id='14' name='BAN-Performance yearly' playctrls='1' show-title='false' synchronized='1' trailctrls='0' type-v2='currpage' w='28377' x='46284' y='18047'>
+=======
+                      <zone h='3303' id='32' param='vert' type-v2='layout-flow' w='29199' x='44732' y='18047'>
+                        <zone dropdown='1' h='3303' id='14' name='BAN-Performance yearly' playctrls='0' show-title='false' synchronized='1' trailctrls='0' type-v2='currpage' w='29199' x='44732' y='18047'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -5116,8 +5694,13 @@
                         </zone>
                       </zone>
                     </zone>
+<<<<<<< HEAD
                     <zone h='20465' id='28' param='horz' type-v2='layout-flow' w='24871' x='74661' y='885'>
                       <zone h='20465' id='15' name='BAN- coefficient of variation' w='24871' x='74661' y='885'>
+=======
+                    <zone h='20465' id='28' param='horz' type-v2='layout-flow' w='25587' x='73931' y='885'>
+                      <zone h='20465' id='15' name='BAN- coefficient of variation' w='25587' x='73931' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                         <layout-cache cell-count-w='1' non-cell-size-w='309' type-h='cell' type-w='cell' />
                         <zone-style>
                           <format attr='border-color' value='#000000' />
@@ -5130,7 +5713,11 @@
                   </zone>
                 </zone>
               </zone>
+<<<<<<< HEAD
               <zone h='34071' id='16' name='RSI' w='71783' x='468' y='65044'>
+=======
+              <zone h='34071' id='16' name='RSI' w='71764' x='482' y='65044'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -5138,7 +5725,11 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
+<<<<<<< HEAD
               <zone h='32746' id='17' name='AVG volume leap year' w='27281' x='72251' y='66369'>
+=======
+              <zone h='32746' id='17' name='AVG volume leap year' w='27272' x='72246' y='66369'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -5146,7 +5737,11 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
+<<<<<<< HEAD
               <zone h='43694' id='21' name='Indicator evolution' w='71783' x='468' y='21350'>
+=======
+              <zone h='43694' id='21' name='Indicator evolution' w='71764' x='482' y='21350'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -5154,7 +5749,11 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
+<<<<<<< HEAD
               <zone h='45019' id='24' name='MA time period' w='27281' x='72251' y='21350'>
+=======
+              <zone h='45019' id='24' name='MA time period' w='27272' x='72246' y='21350'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -5176,9 +5775,15 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1850' minheight='1850' sizing-mode='vscroll' />
           <zones>
+<<<<<<< HEAD
             <zone h='100000' id='72' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='98230' id='71' param='vert' type-v2='layout-flow' w='99064' x='468' y='885'>
                 <zone fixed-size='156' h='20465' id='3' is-fixed='true' name='BAN-open value all' w='20730' x='468' y='885'>
+=======
+            <zone h='100000' id='64' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='63' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+                <zone fixed-size='156' h='20465' id='3' is-fixed='true' name='BAN-open value all' w='20024' x='482' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5187,7 +5792,11 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
+<<<<<<< HEAD
                 <zone fixed-size='129' h='17162' id='5' is-fixed='true' name='BAN-open value year' w='25086' x='21198' y='885'>
+=======
+                <zone fixed-size='129' h='17162' id='5' is-fixed='true' name='BAN-open value year' w='24226' x='20506' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5196,7 +5805,11 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
+<<<<<<< HEAD
                 <zone fixed-size='129' h='17162' id='10' is-fixed='true' name='BAN-Performance yearly' w='28377' x='46284' y='885'>
+=======
+                <zone fixed-size='129' h='17162' id='10' is-fixed='true' name='BAN-Performance yearly' w='29199' x='44732' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <layout-cache type-h='cell' type-w='cell' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -5206,7 +5819,11 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
+<<<<<<< HEAD
                 <zone fixed-size='156' h='20465' id='15' is-fixed='true' name='BAN- coefficient of variation' w='24871' x='74661' y='885'>
+=======
+                <zone fixed-size='156' h='20465' id='15' is-fixed='true' name='BAN- coefficient of variation' w='25587' x='73931' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <layout-cache cell-count-w='1' non-cell-size-w='309' type-h='cell' type-w='cell' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -5216,7 +5833,11 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
+<<<<<<< HEAD
                 <zone fixed-size='280' h='43694' id='21' is-fixed='true' name='Indicator evolution' w='71783' x='468' y='21350'>
+=======
+                <zone fixed-size='280' h='43694' id='21' is-fixed='true' name='Indicator evolution' w='71764' x='482' y='21350'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5225,7 +5846,11 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
+<<<<<<< HEAD
                 <zone fixed-size='280' h='45019' id='24' is-fixed='true' name='MA time period' w='27281' x='72251' y='21350'>
+=======
+                <zone fixed-size='280' h='45019' id='24' is-fixed='true' name='MA time period' w='27272' x='72246' y='21350'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5234,7 +5859,11 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
+<<<<<<< HEAD
                 <zone fixed-size='265' h='34071' id='16' is-fixed='true' name='RSI' w='71783' x='468' y='65044'>
+=======
+                <zone fixed-size='265' h='34071' id='16' is-fixed='true' name='RSI' w='71764' x='482' y='65044'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5243,7 +5872,11 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
+<<<<<<< HEAD
                 <zone fixed-size='254' h='32746' id='17' is-fixed='true' name='AVG volume leap year' w='27281' x='72251' y='66369'>
+=======
+                <zone fixed-size='254' h='32746' id='17' is-fixed='true' name='AVG volume leap year' w='27272' x='72246' y='66369'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5252,7 +5885,11 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
+<<<<<<< HEAD
                 <zone count='1' fixed-size='118' h='3303' id='9' name='BAN-open value year' name1='BAN- coefficient of variation' playctrls='0' show-title='false' synchronized='1' trailctrls='0' type-v2='currpage' w='25086' x='21198' y='18047'>
+=======
+                <zone count='1' fixed-size='118' h='3303' id='9' name='BAN-open value year' name1='BAN- coefficient of variation' playctrls='0' show-title='false' synchronized='1' trailctrls='0' type-v2='currpage' w='24226' x='20506' y='18047'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5261,7 +5898,11 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
+<<<<<<< HEAD
                 <zone dropdown='1' h='3303' id='14' name='BAN-Performance yearly' playctrls='1' show-title='false' synchronized='1' trailctrls='0' type-v2='currpage' w='28377' x='46284' y='18047'>
+=======
+                <zone dropdown='1' h='3303' id='14' name='BAN-Performance yearly' playctrls='0' show-title='false' synchronized='1' trailctrls='0' type-v2='currpage' w='29199' x='44732' y='18047'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5288,9 +5929,15 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+<<<<<<< HEAD
           <zone h='98230' id='7' param='horz' type-v2='layout-flow' w='99064' x='468' y='885'>
             <zone h='98230' id='5' type-v2='layout-basic' w='99064' x='468' y='885'>
               <zone h='98230' id='3' name='BAN- coefficient of variation (2)' w='99064' x='468' y='885'>
+=======
+          <zone h='98230' id='7' param='horz' type-v2='layout-flow' w='99036' x='482' y='885'>
+            <zone h='98230' id='5' type-v2='layout-basic' w='99036' x='482' y='885'>
+              <zone h='98230' id='3' name='BAN- coefficient of variation (2)' w='99036' x='482' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -5313,9 +5960,15 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
+<<<<<<< HEAD
             <zone h='100000' id='38' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='98230' id='37' param='vert' type-v2='layout-flow' w='99064' x='468' y='885'>
                 <zone fixed-size='280' h='98230' id='3' is-fixed='true' name='BAN- coefficient of variation (2)' w='99064' x='468' y='885'>
+=======
+            <zone h='100000' id='30' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='29' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+                <zone fixed-size='280' h='98230' id='3' is-fixed='true' name='BAN- coefficient of variation (2)' w='99036' x='482' y='885'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -5346,6 +5999,7 @@
       </devicelayouts>
       <simple-id uuid='{EF14D6E6-91A2-49D6-B78D-33DA028C3D28}' />
     </dashboard>
+<<<<<<< HEAD
     <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 5'>
       <style />
       <size sizing-mode='automatic' />
@@ -5416,6 +6070,8 @@
       </devicelayouts>
       <simple-id uuid='{8558108E-7DD2-4DE0-B161-5EB1BE19FC08}' />
     </dashboard>
+=======
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
     <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard Yuchen'>
       <style />
       <size sizing-mode='automatic' />
@@ -5431,8 +6087,13 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1450' minheight='1450' sizing-mode='vscroll' />
           <zones>
+<<<<<<< HEAD
             <zone h='100000' id='37' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='98230' id='36' param='vert' type-v2='layout-flow' w='99064' x='468' y='885'>
+=======
+            <zone h='100000' id='29' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='28' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                 <zone fixed-size='262' h='32697' id='3' is-fixed='true' name='AAPL vs SnP vs QQQ Linechart' w='100180' x='-90' y='-127'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -5512,6 +6173,7 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+<<<<<<< HEAD
           <zone h='98230' id='1' param='vert' removable='false' type-v2='layout-flow' w='99064' x='468' y='885'>
             <zone h='3650' id='3' type-v2='title' w='99064' x='468' y='885' />
             <zone h='11173' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='99064' x='468' y='4535' />
@@ -5546,6 +6208,16 @@
                       </worksheet>
                     </capturedDeltas>
                   </story-point>
+=======
+          <zone h='97704' id='1' param='vert' removable='false' type-v2='layout-flow' w='98698' x='651' y='1148'>
+            <zone h='4735' id='3' type-v2='title' w='98698' x='651' y='1148' />
+            <zone h='14491' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98698' x='651' y='5883' />
+            <zone h='78478' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98698' x='651' y='20374'>
+              <flipboard active-id='1' nav-type='caption' show-nav-arrows='true'>
+                <story-points>
+                  <story-point caption='COVER' captured-sheet='COVER' id='2' />
+                  <story-point caption='AAPL OVERVIEW' captured-sheet='Dashboard 1' id='1' />
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                   <story-point caption='Indicator Evolution' captured-sheet='Indicator evolution' id='3' />
                   <story-point caption='Coefficient of Variance' captured-sheet='Dashboard 3' id='4' />
                   <story-point caption='AAPL - RSI' captured-sheet='RSI' id='5'>
@@ -5568,6 +6240,7 @@
                   <story-point caption='Apple performance compared with QQQ' captured-sheet='AAPL minus QQQ (bar)' id='9' />
                   <story-point caption='The original dataset is not as clean as we  have supposed' captured-sheet='Boolean Columns are not that Clean' id='10' />
                   <story-point caption='The quarterly performance of the Apple stock  ' captured-sheet='AAPL Quarterly Difference' id='11' />
+<<<<<<< HEAD
                   <story-point captured-sheet='Dashboard 1' id='13'>
                     <capturedDeltas>
                       <worksheet name='BAN-Performance yearly'>
@@ -5609,6 +6282,8 @@
                     </capturedDeltas>
                   </story-point>
                   <story-point captured-sheet='Dashboard 1' id='14' />
+=======
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
                 </story-points>
               </flipboard>
             </zone>
@@ -5652,6 +6327,7 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
     </dashboard>
   </dashboards>
   <windows source-height='72'>
+<<<<<<< HEAD
     <window class='dashboard' name='Story 1'>
       <viewpoints />
       <active id='5' />
@@ -5704,6 +6380,12 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       <cards>
         <edge name='left'>
           <strip size='160'>
+=======
+    <window class='worksheet' name='RSI'>
+      <cards>
+        <edge name='left'>
+          <strip size='235'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -5721,6 +6403,7 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
           </strip>
         </edge>
       </cards>
+<<<<<<< HEAD
       <viewpoint>
         <zoom type='entire-view' />
       </viewpoint>
@@ -5789,6 +6472,11 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       <simple-id uuid='{3B00A703-EA6F-44AE-9923-9FEFF2928AA9}' />
     </window>
     <window class='worksheet' hidden='true' name='AAPL vs SnP vs QQQ Linechart'>
+=======
+      <simple-id uuid='{44656044-1324-4472-8B45-DDDAED5F034F}' />
+    </window>
+    <window class='worksheet' name='MA time period'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5809,18 +6497,54 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
             <card type='title' />
           </strip>
         </edge>
+<<<<<<< HEAD
         <edge name='right'>
           <strip size='100'>
             <card pane-specification-id='5' param='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' type='color' />
+=======
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{DF61471D-BFCA-4FC0-A110-10AE40DCBB30}' />
+    </window>
+    <window class='worksheet' name='Indicator evolution'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
           </strip>
         </edge>
       </cards>
       <viewpoint>
+<<<<<<< HEAD
         <zoom type='fit-width' />
       </viewpoint>
       <simple-id uuid='{988E1647-68FB-472E-AA51-CAE63220A820}' />
     </window>
     <window class='worksheet' hidden='true' name='AVG volume leap year'>
+=======
+        <zoom type='entire-view' />
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{83357E66-75B8-4A5E-8D81-8284BB0A50AE}' />
+    </window>
+    <window class='worksheet' name='AVG volume leap year'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5851,14 +6575,21 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       </viewpoint>
       <simple-id uuid='{331E8E6F-6901-4ED3-A0DE-289B8D1EAE5B}' />
     </window>
+<<<<<<< HEAD
     <window class='worksheet' hidden='true' name='BAN- coefficient of variation'>
+=======
+    <window class='worksheet' name='BAN-open value all'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
       <cards>
         <edge name='left'>
           <strip size='160'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
+<<<<<<< HEAD
             <card type='measures' />
+=======
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
           </strip>
         </edge>
         <edge name='top'>
@@ -5876,16 +6607,25 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       <viewpoint>
         <zoom type='entire-view' />
       </viewpoint>
+<<<<<<< HEAD
       <simple-id uuid='{93FA9A9D-2EF2-4862-81D1-ED7EF273D224}' />
     </window>
     <window class='worksheet' hidden='true' name='BAN- coefficient of variation (2)'>
+=======
+      <simple-id uuid='{D2401181-7865-4147-A672-070255723188}' />
+    </window>
+    <window class='worksheet' name='BAN-open value year'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
       <cards>
         <edge name='left'>
           <strip size='160'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
+<<<<<<< HEAD
             <card type='measures' />
+=======
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
           </strip>
         </edge>
         <edge name='top'>
@@ -5906,11 +6646,24 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
         </edge>
       </cards>
       <viewpoint>
+<<<<<<< HEAD
         <zoom type='entire-view' />
       </viewpoint>
       <simple-id uuid='{F0587BC5-7942-48C0-8CC3-8383B1DEC0B0}' />
     </window>
     <window class='worksheet' hidden='true' name='BAN-Performance yearly'>
+=======
+        <current-page>
+          <multibucket>
+            <bucket>2020</bucket>
+          </multibucket>
+        </current-page>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{C9FE6A2E-333B-4CCF-839D-7671C4768E75}' />
+    </window>
+    <window class='worksheet' name='BAN-Performance yearly'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5950,7 +6703,288 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       </viewpoint>
       <simple-id uuid='{3118E51D-9498-44F5-A3B2-7BAD2080823C}' />
     </window>
+<<<<<<< HEAD
     <window class='worksheet' hidden='true' name='BAN-open value all'>
+=======
+    <window class='worksheet' name='BAN- coefficient of variation'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{93FA9A9D-2EF2-4862-81D1-ED7EF273D224}' />
+    </window>
+    <window class='worksheet' name='BAN- coefficient of variation (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card type='currpage' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{F0587BC5-7942-48C0-8CC3-8383B1DEC0B0}' />
+    </window>
+    <window class='dashboard' name='COVER'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{5FAAED0A-F4FF-41FC-8D25-581279A5E1F8}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='AVG volume leap year'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='BAN- coefficient of variation'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='BAN-Performance yearly'>
+          <current-page>
+            <multibucket>
+              <bucket>2020</bucket>
+              <bucket>3</bucket>
+              <bucket>8</bucket>
+              <bucket>13</bucket>
+            </multibucket>
+          </current-page>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='BAN-open value all'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='BAN-open value year'>
+          <current-page>
+            <multibucket>
+              <bucket>2009</bucket>
+            </multibucket>
+          </current-page>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Indicator evolution'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='MA time period'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='RSI'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{6D1E2EC8-D57B-41AE-A3FF-252BDDE1A673}' />
+    </window>
+    <window class='dashboard' name='Dashboard 3'>
+      <viewpoints>
+        <viewpoint name='BAN- coefficient of variation (2)'>
+          <current-page>
+            <multibucket>
+              <bucket>2020</bucket>
+              <bucket>8</bucket>
+            </multibucket>
+          </current-page>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{8114DD89-FB02-4853-9F5A-50B8D52E6A4F}' />
+    </window>
+    <window class='worksheet' name='S&amp;P Linechart'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1C52960F-2911-4A52-8A4C-60BBADC43FF5}' />
+    </window>
+    <window class='worksheet' name='QQQ Linechart'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{81FF2CB9-2151-41C8-89EC-0E4ED90147C0}' />
+    </window>
+    <window class='worksheet' name='AAPL Linechart'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{17D98B00-231C-4548-AE5C-C28BE1DF7AD9}' />
+    </window>
+    <window class='worksheet' name='AAPL vs SnP Linechart'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='100'>
+            <card pane-specification-id='1' param='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{CD2D6DB6-5CDD-4E66-AEC9-93AAF972634E}' />
+    </window>
+    <window class='worksheet' name='AAPL vs SnP vs QQQ Linechart'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='100'>
+            <card pane-specification-id='5' param='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{988E1647-68FB-472E-AA51-CAE63220A820}' />
+    </window>
+    <window class='worksheet' name='AAPL ATR Linechart'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A16065F9-96C7-4003-AF9E-904CC360A21F}' />
+    </window>
+    <window class='worksheet' name='AAPL ATR vs STD Linechart'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5974,9 +7008,15 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       <viewpoint>
         <zoom type='entire-view' />
       </viewpoint>
+<<<<<<< HEAD
       <simple-id uuid='{D2401181-7865-4147-A672-070255723188}' />
     </window>
     <window class='worksheet' hidden='true' name='BAN-open value year'>
+=======
+      <simple-id uuid='{748987EF-82C5-4E77-AC6F-EED805B569C6}' />
+    </window>
+    <window class='worksheet' name='AAPL Yearly Performance'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5998,11 +7038,16 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
         </edge>
         <edge name='right'>
           <strip size='160'>
+<<<<<<< HEAD
             <card type='currpage' />
+=======
+            <card pane-specification-id='0' param='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:Close(t):qk]' type='color' />
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
           </strip>
         </edge>
       </cards>
       <viewpoint>
+<<<<<<< HEAD
         <current-page>
           <multibucket>
             <bucket>2020</bucket>
@@ -6013,6 +7058,163 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       <simple-id uuid='{C9FE6A2E-333B-4CCF-839D-7671C4768E75}' />
     </window>
     <window class='worksheet' hidden='true' name='Boolean Columns are not that Clean'>
+=======
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{CF836BBD-DC39-422C-B148-2E882EEFE151}' />
+    </window>
+    <window class='worksheet' name='AAPL+STD(1)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{0C9321E7-134B-4E24-A0E6-CA59E25ECBF9}' />
+    </window>
+    <window class='worksheet' name='AAPL+STD(2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[sum:STD5:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{CE08E486-6E2E-4291-BFE2-232EA6298D90}' />
+    </window>
+    <window class='worksheet' name='AAPL minus QQQ(line)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{151B1D44-93D6-493A-B681-95D7EF3AFE01}' />
+    </window>
+    <window class='worksheet' name='AAPL minus QQQ (bar)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[usr:Calculation_959759328197054464:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{3B00A703-EA6F-44AE-9923-9FEFF2928AA9}' />
+    </window>
+    <window class='worksheet' name='AAPL vs QQQ(2020)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{0F1A2EF6-3695-4D08-8D98-E478B86F58A3}' />
+    </window>
+    <window class='worksheet' name='Boolean Columns are not that Clean'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -6038,6 +7240,7 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       </viewpoint>
       <simple-id uuid='{E0BC13F8-8FE8-4E5F-96A5-0AFA5DD9EC6A}' />
     </window>
+<<<<<<< HEAD
     <window class='dashboard' hidden='true' name='COVER'>
       <viewpoints />
       <active id='-1' />
@@ -6064,6 +7267,68 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       <simple-id uuid='{F5AFECB9-690A-4E06-91A8-07E381BC98FB}' />
     </window>
     <window class='dashboard' hidden='true' name='Dashboard Yuchen'>
+=======
+    <window class='worksheet' name='AAPL Quarterly Difference'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[diff:sum:Close(t):qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{F151DC5E-9E4C-40CE-8B4B-30F826542476}' />
+    </window>
+    <window class='worksheet' name='Explorations'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1kpviv81utkq9e1dp258p0tayfa8 (copy)].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{26F57037-FF19-454B-B52B-66720B3E2C63}' />
+    </window>
+    <window class='dashboard' name='Dashboard Yuchen'>
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
       <viewpoints>
         <viewpoint name='AAPL ATR vs STD Linechart'>
           <zoom type='entire-view' />
@@ -6084,6 +7349,7 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       <active id='-1' />
       <simple-id uuid='{27F38AE8-D6F4-4B25-8A35-D648D2CF9DF4}' />
     </window>
+<<<<<<< HEAD
     <window class='worksheet' hidden='true' name='Indicator evolution'>
       <cards>
         <edge name='left'>
@@ -6885,6 +8151,438 @@ The chart shows that Apple perfomed especially well in 2019-2020 compared to the
       zKk1KeVS9V0XXR/KCiEW0rds+69Dfywqd9Gxdux9gGjm8fjpV/jvCloJwiAiFuCYBrWVCmZ/
       zO/XcyiKgqIoFApnv1aQz+ePXXPSZ5flcBp0Wfqui67L9tsy7ZdSIqX85P2xqNyifbZvOnz3
       os1/AWHiAk26rE1BAAAAAElFTkSuQmCC
+=======
+    <window class='dashboard' maximized='true' name='Story 1'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{FBB2F1C6-2417-4DA5-B490-11D0478C19F2}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Story 1' width='192'>
+      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
+      SUVORK5CYII=
+>>>>>>> 5061b506252ee8258137004112faec15bbdd1702
     </thumbnail>
   </thumbnails>
 </workbook>
